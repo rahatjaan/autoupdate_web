@@ -29,21 +29,37 @@ public class CheckUpdate extends HttpServlet {
 		String lastUpdate = request.getParameter("lastUpdate");
 		PrintWriter writer = response.getWriter();
 		String output="false";
-		if(lastUpdate==null || lastUpdate.isEmpty())
+		if(lastUpdate==null || lastUpdate.isEmpty()){
 			output = ErrorMessages.INPUT_DATE_EMPTY;
+			writer.println(output+". Example http://localhost:8080/lpwupdates/checkupdate?lastUpdate=2013-11-10");
+			return;
+		}
 		try {
 			File file = new File(wathFile);
 			System.out.println("Before Format : " + file.lastModified());
-			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			String modifiedDateStr = sdf.format(file.lastModified());
 			Date modifiedDate = sdf.parse(modifiedDateStr);
 			Date lastupdateDownloaded = sdf.parse(lastUpdate);
+			if(modifiedDate.compareTo(lastupdateDownloaded)>0){
+        		System.out.println("modifiedDate is after Date2");
+        		output="true";
+        	}else if(modifiedDate.compareTo(lastupdateDownloaded)<0){
+        		System.out.println("modifiedDate is before Date2");
+        		output="false";
+        	}else if(modifiedDate.compareTo(lastupdateDownloaded)==0){
+        		System.out.println("modifiedDate is equal to Date2");
+        		output="false";
+        	}else{
+        		System.out.println("How to get here?");
+        	}
 			System.out.println("After Format : " + sdf.format(file.lastModified()));
-			response.getWriter().println(file.lastModified()+",\n"+sdf.format(file.lastModified()));
-		} catch (IOException e) {
-			e.printStackTrace();
+//			response.getWriter().println(file.lastModified()+",\n"+sdf.format(file.lastModified()));
 		} catch (ParseException e) {
 			e.printStackTrace();
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
 		}
 		writer.println(output);
 	}
