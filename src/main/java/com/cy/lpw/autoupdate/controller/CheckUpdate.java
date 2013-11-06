@@ -53,7 +53,7 @@ public class CheckUpdate extends HttpServlet {
         	}else{
         		System.out.println("How to get here?");
         	}
-			System.out.println("After Format : " + sdf.format(file.lastModified()));
+//			System.out.println("After Format : " + sdf.format(file.lastModified()));
 //			response.getWriter().println(file.lastModified()+",\n"+sdf.format(file.lastModified()));
 		} catch (ParseException e) {
 			e.printStackTrace();
