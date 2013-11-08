@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  
   <servlet>
     <servlet-name>CheckUpdates</servlet-name>
     <servlet-class>com.cy.lpw.autoupdate.controller.CheckUpdate</servlet-class>
@@ -10,9 +9,17 @@
     <servlet-name>CheckUpdates</servlet-name>
     <url-pattern>/checkupdate</url-pattern>
   </servlet-mapping>
-  
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
- 
+  <servlet>
+    <description>DownloadUpdate Servlet</description>
+    <display-name>DownloadUpdate</display-name>
+    <servlet-name>DownloadUpdate</servlet-name>
+    <servlet-class>com.cy.lpw.autoupdate.controller.DownloadUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DownloadUpdate</servlet-name>
+    <url-pattern>/downloadupdate</url-pattern>
+  </servlet-mapping>
 </web-app>
