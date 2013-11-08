@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="autoupdate"
+  id="myeclipse.1383913432867"
+  context-root="/autoupdateweb"
+  j2ee-spec="6.0"
+  archive="autoupdate.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
