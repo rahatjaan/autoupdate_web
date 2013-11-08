@@ -27,9 +27,11 @@ public class CheckUpdate extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String wathFile = ConfigurationUtil.getWatchFilePath();
 		String lastUpdate = request.getParameter("lastUpdate");
+		System.out.println("lastDate :"+lastUpdate);
 		PrintWriter writer = response.getWriter();
 		String output="false";
 		if(lastUpdate==null || lastUpdate.isEmpty()){
+			System.out.println("lastDate is empty");
 			output = ErrorMessages.INPUT_DATE_EMPTY;
 			writer.println(output+". Example http://localhost:8080/lpwupdates/checkupdate?lastUpdate=2013-11-10");
 			return;
