@@ -44,13 +44,13 @@ public class CheckUpdate extends HttpServlet {
 			Date modifiedDate = sdf.parse(modifiedDateStr);
 			Date lastupdateDownloaded = sdf.parse(lastUpdate);
 			if(modifiedDate.compareTo(lastupdateDownloaded)>0){
-        		System.out.println("modifiedDate is after Date2");
+        		System.out.println("modifiedDate is after lastupdateDownloaded");
         		output="true";
         	}else if(modifiedDate.compareTo(lastupdateDownloaded)<0){
-        		System.out.println("modifiedDate is before Date2");
+        		System.out.println("modifiedDate is before lastupdateDownloaded");
         		output="false";
         	}else if(modifiedDate.compareTo(lastupdateDownloaded)==0){
-        		System.out.println("modifiedDate is equal to Date2");
+        		System.out.println("modifiedDate is equal to lastupdateDownloaded");
         		output="false";
         	}else{
         		System.out.println("How to get here?");
